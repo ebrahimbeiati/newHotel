@@ -22,6 +22,12 @@ const SearchResults = ({ results }) => {
       setSelectedRow(id);
     }
   };
+  const [updatedResults, setUpdatedResults] = useState([]);
+
+  const handleDelete = (id) => {
+    const newResults = results.filter((result) => result.id !== id);
+    setUpdatedResults(newResults);
+  };
 
   return (
     <div>
@@ -67,6 +73,11 @@ const SearchResults = ({ results }) => {
                     Show profile
                   </button>
                 </td>
+                <td>
+                  <button onClick={() => handleDelete(result.id)}>
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}
@@ -78,3 +89,4 @@ const SearchResults = ({ results }) => {
 };
 
 export default SearchResults;
+
