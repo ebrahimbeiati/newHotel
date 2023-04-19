@@ -21,6 +21,7 @@ const SearchResults = ({ results }) => {
     } else {
       setSelectedRow(id);
     }
+    
   };
   const [updatedResults, setUpdatedResults] = useState([]);
 
