@@ -1,77 +1,318 @@
-.App {
-  text-align: left;
-  text-align: center;
-}
-.App-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  background-color: #222;
-  height: 50px;
-  padding: 20px;
-  padding-left: 10px;
-  color: white;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-top: 20px;
-  text-align: center;
-}
-.headerContainer {
-  display: flex;
-  align-items: center;
-}
-.logo {
-  fill: rgb(55, 59, 55);
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  padding: 5px;
-  margin-left: 10px;
-  filter: invert(1);
+/* Custom components */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-base rounded-lg transition-all duration-300 relative overflow-hidden;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white;
+  }
+  
+  .btn-large {
+    @apply px-8 py-4 text-lg;
+  }
+  
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-xl border border-white/20 rounded-2xl p-8 shadow-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .section-header {
+    @apply text-center py-16 pb-8 mb-8;
+  }
+  
+  .section-title h2 {
+    @apply mb-4 text-blue-600;
+  }
+  
+  .section-title p {
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  }
+  
+  .hero-title {
+    @apply text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-br from-white to-gray-100 bg-clip-text text-transparent;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl mb-8 opacity-90 leading-relaxed font-light;
+  }
+  
+  .hero-stats {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-white/20;
+  }
+  
+  .stat-number {
+    @apply text-4xl font-bold text-white block mb-2;
+  }
+  
+  .stat-label {
+    @apply text-sm opacity-80 uppercase tracking-wider font-medium;
+  }
+  
+  .city-card {
+    @apply bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 relative hover:-translate-y-4 hover:scale-105 hover:shadow-2xl;
+  }
+  
+  .city-image {
+    @apply h-64 relative overflow-hidden transition-transform duration-300;
+  }
+  
+  .city-content {
+    @apply p-6;
+  }
+  
+  .city-name {
+    @apply text-2xl font-semibold text-blue-600 mb-3;
+  }
+  
+  .city-description {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  
+  .city-meta {
+    @apply flex justify-between items-center mb-4;
+  }
+  
+  .city-rating {
+    @apply flex items-center gap-1 text-yellow-500 font-semibold;
+  }
+  
+  .city-price {
+    @apply text-xl font-bold text-blue-600;
+  }
+  
+  .city-features {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+  
+  .feature-tag {
+    @apply bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .city-actions {
+    @apply flex gap-3;
+  }
+  
+  .menu-item {
+    @apply bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 relative hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .menu-item.popular::before {
+    content: '⭐ Popular';
+    @apply absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-semibold z-10;
+  }
+  
+  .menu-item-image {
+    @apply h-52 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-6xl relative transition-transform duration-300;
+  }
+  
+  .menu-item-content {
+    @apply p-6;
+  }
+  
+  .menu-item-header {
+    @apply flex justify-between items-start mb-3;
+  }
+  
+  .menu-item-name {
+    @apply text-xl font-semibold text-blue-600 m-0;
+  }
+  
+  .menu-item-price {
+    @apply text-lg font-bold text-blue-600;
+  }
+  
+  .menu-item-description {
+    @apply text-gray-600 mb-4 leading-relaxed;
+  }
+  
+  .menu-item-meta {
+    @apply flex justify-between items-center mb-4 text-sm text-gray-500;
+  }
+  
+  .menu-item-rating {
+    @apply flex items-center gap-1;
+  }
+  
+  .menu-item-category {
+    @apply bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .modern-table {
+    @apply w-full bg-white rounded-2xl overflow-hidden shadow-lg border-collapse;
+  }
+  
+  .modern-table th {
+    @apply bg-blue-600 text-white p-4 text-left font-semibold text-sm uppercase tracking-wider;
+  }
+  
+  .modern-table td {
+    @apply p-4 border-b border-gray-200 text-sm;
+  }
+  
+  .modern-table tr:last-child td {
+    @apply border-b-0;
+  }
+  
+  .modern-table tr:hover {
+    @apply bg-gray-50;
+  }
+  
+  .search-input {
+    @apply w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-lg text-base transition-all duration-300 bg-white focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10;
+  }
+  
+  .form-control {
+    @apply w-full p-4 border-2 border-gray-200 rounded-lg text-base bg-white transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10;
+  }
+  
+  .search-container {
+    @apply mb-8 space-y-6;
+  }
+  
+  .search-box {
+    @apply relative;
+  }
+  
+  .search-icon {
+    @apply absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400;
+  }
+  
+  .filters-container {
+    @apply flex flex-wrap gap-6 items-center justify-between bg-white p-6 rounded-2xl shadow-lg border border-gray-200;
+  }
+  
+  .filter-select {
+    @apply px-4 py-2 border-2 border-gray-200 rounded-lg text-sm bg-white transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-600 hover:text-white;
+  }
+  
+  .booking-form-section {
+    @apply mb-8 bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden;
+  }
+  
+  .bookings-content {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+  }
+  
+  .bookings-table {
+    @apply lg:col-span-2;
+  }
+  
+  .customer-profile-section {
+    @apply lg:col-span-1;
+  }
+  
+  /* Restaurant Specific Styles */
+  .restaurant-controls {
+    @apply mb-8;
+  }
+  
+  .menu-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+  
+  .menu-item {
+    @apply bg-white rounded-3xl overflow-hidden shadow-lg transition-all duration-500 relative hover:-translate-y-2 hover:shadow-2xl border border-gray-100;
+  }
+  
+  .menu-item.chef-special {
+    @apply ring-2 ring-yellow-400 ring-opacity-50;
+  }
+  
+  .menu-item-image {
+    @apply h-64 relative overflow-hidden;
+  }
+  
+  .menu-item-content {
+    @apply p-6;
+  }
+  
+  .menu-item-header {
+    @apply flex justify-between items-start mb-3;
+  }
+  
+  .menu-item-name {
+    @apply text-xl font-bold text-gray-900 m-0 leading-tight;
+  }
+  
+  .menu-item-price {
+    @apply text-2xl font-bold text-blue-600;
+  }
+  
+  .menu-item-description {
+    @apply text-gray-600 mb-4 leading-relaxed text-sm;
+  }
+  
+  .menu-item-meta {
+    @apply flex justify-between items-center mb-4 text-sm text-gray-500;
+  }
+  
+  .menu-item-category {
+    @apply bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .menu-item-actions {
+    @apply mt-4;
+  }
+  
+  .allergens-info {
+    @apply mb-3;
+  }
+  
+  /* Order Summary and History Styles */
+  .order-summary-card {
+    @apply bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-3xl shadow-2xl p-8 text-white relative overflow-hidden;
+  }
+  
+  .order-history-card {
+    @apply bg-white rounded-3xl shadow-xl border border-gray-100 p-8;
+  }
+  
+  .order-item-card {
+    @apply flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:bg-gray-100 transition-colors duration-200;
+  }
+  
+  .order-action-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center;
+  }
+  
+  .order-action-icon.add {
+    @apply bg-green-100 text-green-600;
+  }
+  
+  .order-action-icon.remove {
+    @apply bg-red-100 text-red-600;
+  }
 }
 
-.cardContainer {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+/* Custom animations */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 6s infinite linear;
+  }
 }
 
-.card {
-  width: 18rem;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  width: 40vh;
-}
-.card-img-top {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-.order-type {
-  display: flex;
-  gap: 20px;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-footer ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  padding: 20px 0 5px 0;
-}
-table .thead-dark th {
-  color: #767171;
-  background-color: #212529;
-  border-color: #32383e;
-  margin-left: 15%;
+/* Hover effects */
+.city-card:hover .city-image {
+  @apply scale-105;
 }
 
-.selected-colour {
-  background-color: rgb(55, 53, 53);
+.menu-item:hover .menu-item-image {
+  @apply scale-105;
 }
