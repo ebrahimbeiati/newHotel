@@ -134,12 +134,12 @@ const Bookings = () => {
   }
 
   return (
-    <div className="py-20 bg-gray-100 w-full">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="py-12 sm:py-20 bg-gray-100 dark:bg-gray-800 w-full transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="section-header">
           <div className="section-title">
-            <h2>Hotel Bookings</h2>
-            <p>Manage your reservations and explore our available rooms</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Hotel Bookings</h2>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">Manage your reservations and explore our available rooms</p>
           </div>
         </div>
         
@@ -180,33 +180,37 @@ const Bookings = () => {
 
       <div className="bookings-content">
         <div className="bookings-table">
-          <table className="modern-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Room ID</th>
-                <th>Check-in</th>
-                <th>Check-out</th>
-                <th>Nights</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {processedBookings.map((booking) => (
-                <BookingCard
-                  key={booking.id}
-                  booking={booking}
-                  isSelected={selectedBooking?.id === booking.id}
-                  onSelect={handleSelectBooking}
-                  onEdit={handleEditBooking}
-                  onDelete={handleDeleteBooking}
-                />
-              ))}
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="modern-table min-w-full">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>First Name</th>
+                  <th>Surname</th>
+                  <th>Email</th>
+                  <th>Room ID</th>
+                  <th>Check-in</th>
+                  <th>Check-out</th>
+                  <th>Nights</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {processedBookings.map((booking) => (
+                  <BookingCard
+                    key={booking.id}
+                    booking={booking}
+                    isSelected={selectedBooking?.id === booking.id}
+                    onSelect={handleSelectBooking}
+                    onEdit={handleEditBooking}
+                    onDelete={handleDeleteBooking}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {selectedBooking && (

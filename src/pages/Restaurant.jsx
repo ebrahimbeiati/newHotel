@@ -226,26 +226,26 @@ const Restaurant = () => {
   };
 
   return (
-    <div className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 w-full min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 w-full min-h-screen transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 mb-6 shadow-lg">
-            <span className="text-2xl">🍽️</span>
-            <span className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Fine Dining Experience</span>
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 shadow-lg">
+            <span className="text-xl sm:text-2xl">🍽️</span>
+            <span className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Fine Dining Experience</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent px-4">
             Culinary Excellence
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Experience world-class cuisine crafted by our award-winning chefs using the finest ingredients from around the globe
           </p>
         </div>
 
         {/* Search and Filter Controls */}
-        <div className="restaurant-controls mb-12">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl border border-white/20">
-            <div className="flex flex-col sm:flex-row gap-4 items-center w-full lg:w-auto">
+        <div className="restaurant-controls mb-8 sm:mb-12">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 items-center justify-between bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-white/20 dark:border-gray-700/20">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center w-full lg:w-auto">
               <div className="search-box w-full sm:w-80">
                 <svg className="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -283,7 +283,7 @@ const Restaurant = () => {
         </div>
 
         {/* Menu Grid */}
-        <div className="menu-grid mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {filteredMenuItems.map((item) => (
             <MenuItem
               key={item.id}

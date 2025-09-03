@@ -67,12 +67,12 @@ const Search = ({ search, onFilterChange }) => {
       </div>
       
       <div className="filters-container">
-        <div className="flex gap-4 items-center">
-          <label className="text-gray-600 text-sm font-medium">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start sm:items-center w-full">
+          <label className="text-gray-600 dark:text-gray-300 text-sm font-medium whitespace-nowrap">
             Sort by:
           </label>
           <select 
-            className="filter-select"
+            className="filter-select w-full sm:w-auto"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
@@ -91,12 +91,12 @@ const Search = ({ search, onFilterChange }) => {
           </button>
         </div>
 
-        <div className="flex gap-4 items-center">
-          <label className="text-gray-600 text-sm font-medium">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start sm:items-center w-full">
+          <label className="text-gray-600 dark:text-gray-300 text-sm font-medium whitespace-nowrap">
             Status:
           </label>
           <select 
-            className="filter-select"
+            className="filter-select w-full sm:w-auto"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
           >

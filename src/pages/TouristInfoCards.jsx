@@ -89,15 +89,15 @@ const TouristInfoCards = () => {
   ];
 
   return (
-    <div className="py-20 bg-gray-100 w-full" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="py-12 sm:py-20 bg-gray-100 dark:bg-gray-800 w-full transition-colors duration-300" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className={`section-header ${isSectionVisible ? 'animate-fade-in-up' : ''}`}>
           <div className="section-title">
-            <h2>Luxury Destinations</h2>
-            <p>Discover breathtaking destinations and create unforgettable memories</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Luxury Destinations</h2>
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">Discover breathtaking destinations and create unforgettable memories</p>
           </div>
         </div>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 ${isSectionVisible ? 'animate-fade-in-up' : ''}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 ${isSectionVisible ? 'animate-fade-in-up' : ''}`}>
           {cities.map((city, index) => (
             <CityCard
               key={city.name}

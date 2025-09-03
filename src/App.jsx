@@ -9,19 +9,19 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
       <Header />
-      <main className="flex-1 pt-20">
-        <section id="hero">
+      <main className="flex-1 pt-16 sm:pt-20 w-full">
+        <section id="hero" className="w-full">
           <HeroSection />
         </section>
-        <section id="cities">
+        <section id="cities" className="w-full">
           <TouristInfoCards />
         </section>
-        <section id="bookings">
+        <section id="bookings" className="w-full">
           <Bookings />
         </section>
-        <section id="restaurant">
+        <section id="restaurant" className="w-full">
           <Restaurant />
         </section>
       </main>
